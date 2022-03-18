@@ -122,8 +122,7 @@ x
   As stated earlier, we execute. In this case, the relationship can be written as follows:
 
 
-
-### Generalized Aditive Models
+### KNN
 
 
 ### Decision Trees
