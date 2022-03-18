@@ -79,12 +79,126 @@ In classification problems, however, we seek to maximize the probability functio
 Given the type of database used in this project, we are looking to find a function to predict credit card fraud. Therefore, this problem falls into the category of classification algorithms that use supervised learning. Therefore, in the following, I will review the 5 algorithms used in this field and then I will explain how to implement and measure the performance of each of these algorithms and on the data.
 
 ### Logistic regression
+One of the methods of "classification" in the topic of "supervised machine learning" (Supervised Machine Learning) is logistic regression. In this regression method, the concept and method of calculating the "odds ratio" (Odds Ratio) is used. Therefore, it is better to get acquainted with this concept first.
+
+Since in the previous section the prediction value for the dependent variable, with probability
+p
+(
+x
+)
+Done, to determine the model of the relationship between the dependent and independent variables instead of the linear relationship, we need a function that changes from about 0 to 1. In logistic regression method, a function called "Logistic Function" is used. For this reason, this regression method is called logistic regression. In the continuation of this function, the introduction and the related diagram based on the parameters
+b
+1
+=
+1
+  ,
+b
+0
+=
+0
+  Can be seen in the image.
+As can be seen by increasing the value of x (
+x
+→
+∞
+) The logistics function will be close to 1. Also by reducing the value of x (
+x
+→
+-
+∞
+The value of the function tends to zero. Now suppose this function is used for logistic regression to express the probability of a dependent variable. So we will have:
+
+In order to estimate the parameters of this model, "Logit Transformation" can be used. This conversion is on luck
+p
+(
+x
+)
+1
+-
+P
+(
+x
+)
+  As stated earlier, we execute. In this case, the relationship can be written as follows:
+
 
 
 ### Generalized Aditive Models
 
 
 ### Decision Trees
+
+In general, decision tree analysis is a predictive modeling tool that can be used in many fields. Decision trees can be created using an algorithmic solution that can differentiate data sets based on different conditions in different ways. Decision trees are one of the most powerful algorithms that are considered as a subset of supervised algorithms.
+They can be used for both classification and regression tasks. The two main elements of a tree are the decision nodes where the data is distributed, and the leaves from which we get the output. The following is an example of a binary tree that provides a variety of information.
+
+Gini Index
+
+It is the name of a cost function used to evaluate the binary separation of a data set, and works with the definite objective variables "success" and "failure".
+The higher the Gini index, the higher the homogeneity. The ideal value for the Gini index is 0, and the worst value for a problem with two classes is 0.5. Using the following steps, the Gini index can be calculated for a breakdown.
+First, calculate the Gini index for the sub-nodes using the formula p ^ 2 + q ^ 2, which is the sum of the squares of the probabilities of success and failure. Then, use the weighted Gini score for each node to calculate the Gini index.
+The classification and regression tree (CART) algorithm generates binary segregation using the Gini method.
+
+A subdivision basically contains an attribute in the data set and a value. With the help of the following three steps, a separation can be created in the data set.
+
+Step 1: ‌ ‌
+
+
+Calculate Gini Score
+
+We talked about this in the previous section.
+
+Step 2: ‌ ‌
+
+
+Separation of a data set
+
+It can be defined as separating a data set into two lists of rows that have an index of a property, and a split value of that property. After taking the two groups of right and left from the data set, we can use the Gini score, which was calculated in the first step, to calculate the separation value. The value of the separation will decide which group the attribute will remain in.
+
+Step 3: ‌ ‌
+
+
+Evaluation of segregations
+
+The next step after finding the Gini score and sorting the data set is to evaluate all the sorts. To this end, we must first consider all the values ​​associated with each attribute as a separation candidate. Then, we need to estimate the cost of segregation to find the best possible segregation. The best separation is used as a node in the decision tree.
+Build a tree: ‌
+
+
+As we know, a tree has a root node and end nodes. After making the root knot, we can make the tree by following the two parts below.
+
+Section 1: ‌ ‌
+
+
+Final node construction:
+
+When making the final nodes of a decision tree, deciding when to complete the growth of the tree or making more end nodes is one of the most important points. This can be done using two criteria called maximum tree depth and minimum node records, which are introduced below.
+Maximum Tree Depth:
+
+As the name implies, this is the maximum number of nodes in a tree after the root node. When a tree reaches its maximum depth, we must stop adding end nodes. For example, when a tree has the maximum number of end nodes.
+Minimum Node Records:
+
+Defined as the minimum number of learning patterns for which a given node is responsible. When the tree reaches these minimum node records or less, we must stop adding end nodes.
+The final node is used to make the final prediction.
+
+Section 2: ‌ ‌
+
+
+Recursive splitting:
+
+Now that we know when to make the final knots, we can start building our own tree. Return separation is a method of building a tree. In this method, when a node is created, we can call the child nodes (nodes added to an existing node) in each data group, which is generated by separating the data set, by calling the same thing over and over again. Create the function recursively.
+
+Prediction:
+
+
+After building a decision tree, we need to make a prediction about it. Basically, forecasting involves guiding the decision tree by providing specific rows of data.
+According to the above, a prediction can be made with the help of the recursive function. This similar prediction procedure is called again for the left and right child nodes.
+assumptions
+
+
+The following are some of the assumptions made at the time of making the decision tree.
+When preparing decision trees, the learning set will be the root node.
+Decision tree classifiers prefer to have definite attribute values. If we intend to use continuous values, we must discretize them before constructing the model.
+Records are distributed recursively based on attribute values.
+Statistical methods are used to place attributes at the location of each node - such as the root node or intermediate nodes.
 
 
 ### Random Forest
